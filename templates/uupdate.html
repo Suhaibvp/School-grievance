@@ -1,0 +1,69 @@
+{% load static %}
+{% block content %}
+{% include 'header.html' %}
+
+
+<section id="contact" class="contact">
+    <div class="container" data-aos="fade-up">
+        {% csrf_token %}
+      
+
+      
+
+      <div class="row mt-5">
+        <h1>REGISTER</h1>
+       
+
+        <div class="col-lg-8 mt-5 mt-lg-0">
+
+          <form action="uuupdate/{{res.id}}" method="POST"  class="php-email-form">
+            {% csrf_token %}
+      
+            <div class="row">
+              <div class="col-md-6 form-group">
+                <input type="text" name="uname" class="form-control" value="{{res.uname}}" placeholder="Your Name" required>
+              </div>
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+                <input type="text" class="form-control" name="uage" value="{{res.uage}}"  placeholder="Your Age" required>
+              </div>
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+                <input type="text" class="form-control" name="uplace" value="{{res.uplace}}"  placeholder="Your Place" required>
+              </div>
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+                <input type="text" class="form-control" name="ucontact" value="{{res.ucontact}}"  placeholder="Your Contact" required>
+              </div>
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+                <input type="email" class="form-control" name="email" value="{{res.email}}"  placeholder="Your Email" required>
+              </div>
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+                <input type="text" class="form-control" name="usubject" value="{{res.usubject}}"  placeholder="Your Subject" required>
+              </div>
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+                <input type="text" class="form-control" name="uqualification" value="{{res.uqualification}}"  placeholder="Your Qualification" required>
+              </div>
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+                <input type="text" class="form-control" name="uexperience" value="{{res.uexperience}}" placeholder="Your Experience" required>
+              </div>
+
+            </div>
+            <div class="form-group mt-3">
+              <input type="text" class="form-control" name="username" value="{{res.username}}" placeholder="Username" required>
+            </div>
+            <div class="form-group mt-3">
+                <input type="text" class="form-control" name="password" value="{{res.password}}" placeholder="Password" required>
+              </div>
+           
+          
+            <div class="text-center"><button type="submit">REGISTER</button></div>
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  {% include 'footer.html' %}
+
+  {% endblock %}

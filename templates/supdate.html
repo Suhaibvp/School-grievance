@@ -1,0 +1,63 @@
+{% load static %}
+{% block content %}
+{% include 'header.html' %}
+
+
+<section id="contact" class="contact">
+    <div class="container" data-aos="fade-up">
+        
+      
+
+      
+
+      <div class="row mt-5">
+        <h1>ADD STUDENT</h1>
+
+       
+
+        <div class="col-lg-8 mt-5 mt-lg-0">
+
+          <form action="ssupdate/{{res.id}}" method="POST"  class="php-email-form">
+            {% csrf_token %}
+      
+            <div class="row">
+              <div class="col-md-6 form-group">
+                <input type="text" name="sname" class="form-control" value="{{res.sname}}"  placeholder="Student Name" required>
+              </div>
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+                <input type="text" class="form-control" name="sage" value="{{res.sage}}"  placeholder="Student Age" required>
+              </div>
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+                <input type="text" class="form-control" name="splace" value="{{res.splace}}"  placeholder="Student Place" required>
+              </div>
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+                <input type="text" class="form-control" name="scontact" value="{{res.scontact}}"  placeholder="Student Contact" required>
+              </div>
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+                <input type="text" class="form-control" name="pcontact" value="{{res.pcontact}}"  placeholder="Parents Contact" required>
+              </div>
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+                <input type="email" class="form-control" name="semail" value="{{res.semail}}"  placeholder="Students Email" required>
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="scource" value="{{res.scource}}" placeholder="Cource" required>
+              </div>
+             
+
+            </div>
+           
+           
+          
+            <div class="text-center"><button type="submit">ADD</button></div>
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  {% include 'footer.html' %}
+
+  {% endblock %}

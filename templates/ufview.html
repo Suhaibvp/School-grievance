@@ -1,0 +1,52 @@
+{% load static %}
+{% block content %}
+{% include 'header.html' %}
+
+<div class="container">
+    {% csrf_token %}
+    <h1>TEACHERS</h1>
+
+
+<table class="table table-striped table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Place</th>
+        <th scope="col">contact</th>
+        <th scope="col">Email</th>
+        <th scope="col">Subject</th>
+        <th scope="col">Qualification</th>
+        <th scope="col">Experience</th>
+        <th scope="col">UPDATE</th>
+        <th scope="col">DELETE</th>
+      </tr>
+    </thead>
+    {% for i in result %}
+    <tbody>
+      <tr>
+        <th scope="row">{{i.id}}</th>
+        <td>{{i.uname}}</td>
+        <td>{{i.uage}}</td>
+        <td>{{i.uplace}}</td>
+        <td>{{i.ucontact}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.usubject}}</td>
+        <td>{{i.uqualification}}</td>
+        <td>{{i.uexperience}}</td>
+        <td><a href="{% url 'uupdate' id=i.id %}"><button>UPDATE</button></a></td>
+        <td><a href="{% url 'udelete' id=i.id %}"><button>DELETE</button></a></td>
+      </tr>
+      
+      
+    </tbody>
+    {% endfor %}
+  </table>
+  
+
+</div>
+
+{% include 'footer.html' %}
+
+{% endblock %}

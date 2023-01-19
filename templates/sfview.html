@@ -1,0 +1,49 @@
+{% load static %}
+{% block content %}
+{% include 'header.html' %}
+
+<div class="container">
+    <h1>STUDENTS</h1>
+    {% csrf_token %}
+
+
+<table class="table table-striped table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">image</th>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Place</th>
+        <th scope="col">student contact</th>
+        <th scope="col">parents Place</th>
+        <th scope="col">Email</th>
+        <th scope="col">Cource</th>
+
+        <th scope="col">UPDATE</th>
+        <th scope="col">DELETE</th>
+      </tr>
+    </thead>
+    {% for i in result %}
+    <tbody>
+      <tr>
+        <th scope="row">{{i.id}}</th>
+        <td><img src="../media/{{i.img}}" alt="" width="50px" height="50px"> </td>
+        <td>{{i.sname}}</td>
+        <td>{{i.sage}}</td>
+        <td>{{i.splace}}</td>
+        <td>{{i.scontact}}</td>
+        <td>{{i.pcontact}}</td>
+        <td>{{i.semail}}</td>
+        <td>{{i.scource}}</td>
+        <td><a href="{% url 'supdate' id=i.id %}"><button type="button" class="btn btn-success">EDIT</button></a></td>
+        <td><a href="{% url 'sdelete' id=i.id %}"><button type="button" class="btn btn-danger">DELETE</button></a></td>
+      </tr>
+    </tbody>
+    {% endfor %}
+  </table>
+</div>
+
+{% include 'footer.html' %}
+
+{% endblock %}
